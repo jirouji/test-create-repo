@@ -1,0 +1,715 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亮妈妈 TOP10 爆款素材拆解报告</title>
+<style>
+:root{
+  --bg:#0b0e14; --card:#141824; --card2:#1a1f2e; --border:#252b3d;
+  --text:#eef1f7; --text2:#8f96ad;
+  --orange:#ff6b35; --green:#00d09c; --blue:#4dabf7; --purple:#a78bfa; --red:#ff4757; --yellow:#ffb800;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:28px;line-height:1.6;}
+.wrap{max-width:1440px;margin:0 auto;}
+.hero{margin-bottom:28px;}
+.hero h1{font-size:30px;font-weight:800;}
+.hero .sub{color:var(--text2);font-size:14px;margin-top:6px;}
+.hero .brand{color:var(--orange);}
+.btn-group{margin-top:14px;display:flex;gap:10px;}
+.btn{padding:8px 18px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;font-size:13px;transition:.2s;}
+.btn:hover{border-color:var(--orange);}
+.btn.active{background:var(--orange);border-color:var(--orange);color:#fff;}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff;font-weight:600;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:36px;}
+.stat{background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;}
+.stat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent);}
+.stat .num{font-size:36px;font-weight:800;color:var(--orange);line-height:1.1;}
+.stat .num small{font-size:17px;font-weight:600;}
+.stat .label{font-size:14px;font-weight:600;margin-top:6px;}
+.stat .desc{font-size:12px;color:var(--text2);margin-top:4px;}
+.stat.green .num{color:var(--green);} .stat.green::after{background:linear-gradient(90deg,var(--green),transparent);}
+.stat.blue .num{color:var(--blue);} .stat.blue::after{background:linear-gradient(90deg,var(--blue),transparent);}
+.stat.purple .num{color:var(--purple);} .stat.purple::after{background:linear-gradient(90deg,var(--purple),transparent);}
+.stat.yellow .num{color:var(--yellow);} .stat.yellow::after{background:linear-gradient(90deg,var(--yellow),transparent);}
+.section{margin-bottom:44px;}
+.sec-title{font-size:21px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+.sec-title::before{content:'';width:5px;height:22px;border-radius:3px;background:var(--orange);}
+.sec-desc{font-size:13px;color:var(--text2);margin-bottom:18px;margin-left:15px;}
+.biz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+.biz-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;border-top:3px solid var(--green);}
+.biz-card.mid{border-top-color:var(--yellow);}
+.biz-card.no{border-top-color:var(--red);}
+.biz-card h3{font-size:16px;margin-bottom:10px;}
+.biz-card ul{list-style:none;}
+.biz-card li{font-size:13px;color:var(--text2);padding:5px 0 5px 18px;position:relative;}
+.biz-card li::before{content:'●';position:absolute;left:0;font-size:9px;top:11px;color:var(--green);}
+.biz-card.mid li::before{color:var(--yellow);}
+.biz-card.no li::before{color:var(--red);}
+.biz-card li b{color:var(--text);}
+/* 素材卡片 */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:18px;}
+.vcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.2s;}
+.vcard:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.4);border-color:var(--orange);}
+.vcard-top{display:flex;gap:14px;padding:16px;}
+.cover-link{position:relative;display:block;width:110px;height:150px;flex-shrink:0;border-radius:10px;overflow:hidden;}
+.cover-link img{width:100%;height:100%;object-fit:cover;display:block;}
+.cover-link .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);opacity:0;transition:.2s;}
+.cover-link:hover .play{opacity:1;}
+.cover-link .play span{width:44px;height:44px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;}
+.vcard-info{flex:1;min-width:0;}
+.vcard .rank{display:inline-block;background:linear-gradient(135deg,var(--orange),#ff9671);color:#fff;font-size:12px;font-weight:700;padding:2px 10px;border-radius:6px;margin-bottom:6px;}
+.vcard .pid{font-size:12px;color:var(--text2);font-family:monospace;margin-left:6px;}
+.vmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0;}
+.vm{background:var(--card2);border-radius:8px;padding:6px 8px;text-align:center;}
+.vm .v{font-size:15px;font-weight:700;color:var(--green);}
+.vm .k{font-size:10px;color:var(--text2);}
+.vtags{display:flex;flex-wrap:wrap;gap:5px;}
+.vtag{font-size:11px;padding:2px 8px;border-radius:5px;font-weight:500;}
+.vtag.hook{background:rgba(255,107,53,.15);color:var(--orange);}
+.vtag.form{background:rgba(77,171,247,.15);color:var(--blue);}
+.vtag.item{background:rgba(0,208,156,.12);color:var(--green);}
+.hook-line{padding:12px 16px;border-top:1px solid var(--border);font-size:13px;background:rgba(255,107,53,.05);font-style:italic;}
+.hook-line::before{content:'🎯 ';}
+.vcard .foot{padding:10px 16px;border-top:1px solid var(--border);font-size:12px;color:var(--text2);display:flex;justify-content:space-between;align-items:center;}
+.vcard .foot a{color:var(--blue);text-decoration:none;font-weight:600;}
+.vcard .foot a:hover{text-decoration:underline;}
+/* ===== 诺特兰德式 钩子×形式 矩阵 ===== */
+.hook-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;}
+.hook-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.hook-head{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
+.hook-head .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.hook-head h3{font-size:16px;font-weight:700;}
+.hook-head .en{font-size:11px;color:var(--text2);}
+.hook-head .cnt{margin-left:auto;background:var(--orange);color:#fff;font-size:13px;font-weight:700;border-radius:12px;padding:2px 12px;}
+.hook-quote{margin:14px 18px 0;padding:10px 14px;background:rgba(255,107,53,.07);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;font-size:13px;font-style:italic;color:var(--text);}
+.hook-body{padding:14px 18px 16px;}
+.form-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px dashed var(--border);}
+.form-row:last-child{border-bottom:none;}
+.form-badge{flex-shrink:0;font-size:11px;font-weight:600;padding:3px 10px;border-radius:6px;margin-top:2px;white-space:nowrap;}
+.fb-ai{background:rgba(167,139,250,.15);color:var(--purple);}
+.fb-live{background:rgba(0,208,156,.15);color:var(--green);}
+.fb-star{background:rgba(255,184,0,.15);color:var(--yellow);}
+.fb-mix{background:rgba(77,171,247,.15);color:var(--blue);}
+.form-row .fr-main{flex:1;font-size:12px;color:var(--text2);}
+.form-row .fr-main b{color:var(--text);font-size:13px;}
+.form-row .fr-main .pids{font-family:monospace;font-size:11px;color:var(--text2);margin-top:3px;}
+.form-row .fr-main .pids a{color:var(--blue);text-decoration:none;}
+.form-row .fr-main .pids a:hover{text-decoration:underline;}
+.verdict{margin:6px 18px 16px;padding:10px 14px;background:var(--card2);border-radius:8px;font-size:12px;color:var(--text2);}
+.verdict b{color:var(--green);}
+.hc1 .hook-head .icon{background:rgba(255,184,0,.15);} 
+.hc2 .hook-head .icon{background:rgba(0,208,156,.15);}
+.hc3 .hook-head .icon{background:rgba(77,171,247,.15);}
+.hc4 .hook-head .icon{background:rgba(255,107,53,.15);}
+.hc1 .hook-head{border-top:3px solid var(--yellow);}
+.hc2 .hook-head{border-top:3px solid var(--green);}
+.hc3 .hook-head{border-top:3px solid var(--blue);}
+.hc4 .hook-head{border-top:3px solid var(--orange);}
+/* 结构条 */
+.struct{display:flex;border-radius:12px;overflow:hidden;height:90px;}
+.struct div{display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;font-size:12px;}
+.struct .s1{background:#ff6b35;flex:0 0 10%;}
+.struct .s2{background:#e8590c;flex:0 0 24%;}
+.struct .s3{background:#4dabf7;flex:0 0 42%;}
+.struct .s4{background:#00d09c;flex:0 0 24%;}
+.struct b{font-size:14px;}
+.tpl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;}
+.tpl{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.tpl h3{font-size:15px;color:var(--orange);margin-bottom:10px;}
+.tpl .step{font-size:13px;padding:8px 0;border-bottom:1px dashed var(--border);color:var(--text2);}
+.tpl .step:last-child{border-bottom:none;}
+.tpl .step b{color:var(--text);}
+.tpl .tagrow{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;}
+.internal-only{}
+.external-only .internal-only{display:none !important;}
+.footer{text-align:center;color:var(--text2);font-size:12px;padding:20px 0;border-top:1px solid var(--border);}
+</style>
+</head>
+<body class="external-only">
+<div class="wrap">
+
+<div class="hero">
+  <h1><span class="brand">亮妈妈</span> 家清带货 TOP10 爆款素材拆解</h1>
+  <div class="sub">钩子模型 × 素材形式矩阵 · 四段式结构 · 3套量产脚本 · 模板迁移方向 · 数据口径：近30天</div>
+  <div class="btn-group">
+    <button class="btn active" id="btnExt" onclick="switchMode('external')">对外版</button>
+    <button class="btn" id="btnInt" onclick="switchMode('internal')">内部版</button>
+    <button class="btn primary" onclick="saveHTML()">💾 保存为文件</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">10 <small>条</small></div><div class="label">爆款素材拆解</div><div class="desc">覆盖 4 大钩子模型</div></div>
+  <div class="stat green"><div class="num">4 <small>种</small></div><div class="label">素材制作形式</div><div class="desc">AI口播 / 真人剧情 / 明星切片 / 效果混剪</div></div>
+  <div class="stat blue"><div class="num">31-38<small>s</small></div><div class="label">黄金视频时长</div><div class="desc">四段式结构验证最优解</div></div>
+  <div class="stat purple"><div class="num">3 <small>个</small></div><div class="label">核心单品</div><div class="desc">免搓粉 / 爆炸盐 / 洗衣膏 · ¥19.9-30</div></div>
+  <div class="stat yellow"><div class="num">3 <small>套</small></div><div class="label">可复用脚本模板</div><div class="desc">即拿即用的量产 SOP</div></div>
+</div>
+
+<!-- ① 适用商家类型 -->
+<div class="section">
+  <div class="sec-title">这套模板适合谁</div>
+  <div class="sec-desc">先看适配度，再看拆解 —— 三条全中的商家可以直接搬</div>
+  <div class="biz-grid">
+    <div class="biz-card">
+      <h3>✅ 高度适合（可直接套用）</h3>
+      <ul>
+        <li><b>衣物清洁类</b>：洗衣液 / 凝珠 / 油污净，效果可视化最强</li>
+        <li><b>厨卫清洁剂</b>：除霉 / 除垢 / 通下水道，"用前用后"对比震撼</li>
+        <li><b>个人护理</b>：牙膏美白 / 洗发去屑，可拍同款对比实验</li>
+        <li><b>清洁小工具/配件</b>：除螨仪滤芯、刷具，效果直观</li>
+      </ul>
+    </div>
+    <div class="biz-card mid">
+      <h3>⚠️ 部分适合（需改造）</h3>
+      <ul>
+        <li><b>食品零食</b>：钩子换成"解馋/囤货"，证明段换试吃种草</li>
+        <li><b>服饰鞋包</b>：证明段换"上身效果/面料实拍"，钩子换场合焦虑</li>
+        <li><b>白牌/无品牌商家</b>：效果实证可行，但<b>明星切片不能碰</b>（无授权风险极高）</li>
+      </ul>
+    </div>
+    <div class="biz-card no">
+      <h3>❌ 不适合</h3>
+      <ul>
+        <li><b>高客单耐用品</b>：大家电/家具/珠宝，决策周期长，3秒建不了信任</li>
+        <li><b>强内容属性品类</b>：图书/文创/手作，模板化混剪伤害品牌调性</li>
+        <li><b>强监管品类</b>：化妆品/医疗，功效宣称受广告法限制，焦虑话术直接踩线</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ② 钩子×形式矩阵（诺特兰德式卡片） -->
+<div class="section">
+  <div class="sec-title">四大爆款钩子模型 × 素材形式矩阵</div>
+  <div class="sec-desc">每张卡片 = 一个钩子模型：代表话术 + 各形式下的具体素材（点击PID可播放）+ 量产结论</div>
+  <div class="hook-grid">
+
+    <!-- 钩子1 -->
+    <div class="hook-card hc1">
+      <div class="hook-head">
+        <div class="icon">⭐</div>
+        <div><h3>明星信任背书</h3><div class="en">Celebrity Endorsement</div></div>
+        <div class="cnt">4 条</div>
+      </div>
+      <div class="hook-quote">「我用我的声誉来推荐，骗你我就不姓干」「李立群：虚假宣传是犯法的」</div>
+      <div class="hook-body">
+        <div class="form-row">
+          <span class="form-badge fb-star">⭐ 明星切片</span>
+          <div class="fr-main"><b>声誉担保 + 假货承诺，转化收割主力</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3xsex7xm3x39r69" target="_blank">197926421014</a> · <a href="https://www.kuaishou.com/short-video/3xs8bur5a6tihfc" target="_blank">197581308131</a> · <a href="https://www.kuaishou.com/short-video/3xs7vgrrqd9i8dg" target="_blank">193248242060</a></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <span class="form-badge fb-mix">🧩 效果混剪</span>
+          <div class="fr-main"><b>明星口播 + 刷洗实拍穿插，信任与实证双驱动</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3xa2r7nxnntuyys" target="_blank">202731067387</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict">💡 <b>量产结论：</b>冲量/收割期主力。多明星轮播（刘仪伟/于震/李立群/陈浩民）分摊单明星风险，但必须核实授权链</div>
+    </div>
+
+    <!-- 钩子2 -->
+    <div class="hook-card hc2">
+      <div class="hook-head">
+        <div class="icon">🧺</div>
+        <div><h3>场景代入提问</h3><div class="en">Scenario Question</div></div>
+        <div class="cnt">2 条</div>
+      </div>
+      <div class="hook-quote">「宝妈们开学了，孩子开学的鞋是不是也这样脏？」</div>
+      <div class="hook-body">
+        <div class="form-row">
+          <span class="form-badge fb-ai">🎤 AI数字人口播</span>
+          <div class="fr-main"><b>最低成本量产形式，AI直接念痛点清单</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3x4ztuaixa4k8ms" target="_blank">191487196366</a></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <span class="form-badge fb-mix">🧩 效果混剪</span>
+          <div class="fr-main"><b>提问字幕 + 脏污实拍轮播（书包/枕套/白T恤）</b>
+            <div class="pids">场景清单复用于全系列</div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict">💡 <b>量产结论：</b>日常跑量首选，合规风险最低。场景词库每2周轮换（开学→换季→梅雨天），保持新鲜感</div>
+    </div>
+
+    <!-- 钩子3 -->
+    <div class="hook-card hc3">
+      <div class="hook-head">
+        <div class="icon">😱</div>
+        <div><h3>效果震撼直给</h3><div class="en">Visual Shock</div></div>
+        <div class="cnt">3 条</div>
+      </div>
+      <div class="hook-quote">「天呐这也太夸张了吧」「泡一晚，黄渍自己浮上来，看清楚了吗」</div>
+      <div class="hook-body">
+        <div class="form-row">
+          <span class="form-badge fb-mix">🧩 效果混剪</span>
+          <div class="fr-main"><b>核心证明段：刷洗对比 + 加速处理 + 大字幕</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3xjt934nxz8mr36" target="_blank">197687273269</a> · <a href="https://www.kuaishou.com/short-video/3x9mfkabnxp6qy2" target="_blank">203865380532</a></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <span class="form-badge fb-star">⭐ 明星切片</span>
+          <div class="fr-main"><b>明星惊讶反应切片做放大器</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3xsex7xm3x39r69" target="_blank">197926421014</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict">💡 <b>量产结论：</b>全周期通用的「万能证明段」，任何钩子后面都能接。家清品类"用前用后"差异必须3秒内可见</div>
+    </div>
+
+    <!-- 钩子4 -->
+    <div class="hook-card hc4">
+      <div class="hook-head">
+        <div class="icon">🔥</div>
+        <div><h3>冲突 / 反常识</h3><div class="en">Conflict &amp; Counterintuitive</div></div>
+        <div class="cnt">2 条</div>
+      </div>
+      <div class="hook-quote">「我烧了十几年流水席都是这么穿」+「你衣服全是老油垢还敢做饭？」「夏天不想谈恋爱的别用」</div>
+      <div class="hook-body">
+        <div class="form-row">
+          <span class="form-badge fb-live">🎬 真人剧情</span>
+          <div class="fr-main"><b>争议引评论，破圈拉新利器</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3xdu4txr4v7r9m2" target="_blank">204553657037</a> · <a href="https://www.kuaishou.com/short-video/3xgpfj4e5fkdydk" target="_blank">206364713003</a></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <span class="form-badge fb-mix">🧩 效果混剪</span>
+          <div class="fr-main"><b>反常识标题 + 效果反打收尾</b>
+            <div class="pids"><a href="https://www.kuaishou.com/short-video/3xsaaa7uwrxa9j6" target="_blank">206319421279</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict">💡 <b>量产结论：</b>拉新期投放，评论区争议本身就是流量。注意尺度过线会被限流，冲突点到即止</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ③ TOP10 素材卡片 -->
+<div class="section">
+  <div class="sec-title">TOP10 爆款素材逐条拆解</div>
+  <div class="sec-desc">点击封面或「▶ 播放视频」可直接观看原片</div>
+  <div class="cards" id="cardGrid">
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/07/20/11/BMjAyNjA3MjAxMTM0NTdfNTQyNzk5MjM0NV8yMDI3MzEwNjczODdfMF8z_b_Bd857183bf69d3c3f795e8d44dc05ebcb.mp4?tag=1-1787898626-unknown-0-mj6uxthpwz-35fb63318a1a7b40&amp;type=hot&amp;clientCacheKey=3xa2r7nxnntuyys_b.mp4&amp;tt=b&amp;di=a58009a&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/07/20/11/BMjAyNjA3MjAxMTM0NTdfNTQyNzk5MjM0NV8yMDI3MzEwNjczODdfMF8z_Bb8e80d9c8de5d85b9c2c6af24413c464.jpg?tag=1-1787898626-unknown-0-uyzxxs4m8g-f02cffdeb441353b&amp;type=hot&amp;clientCacheKey=3xa2r7nxnntuyys.jpg&amp;di=a58009a&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 1</span>
+       <span class="pid">PID:202731067387</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">35s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">2,400+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">100万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 明星信任背书</span>
+         <span class="vtag form">明星切片</span>
+         <span class="vtag item">免搓粉</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「我用我的声誉来推荐，骗你我就不姓干」</div>
+   <div class="foot"><span>带货单品：免搓粉 ｜ GMV量级：千万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/07/20/11/BMjAyNjA3MjAxMTM0NTdfNTQyNzk5MjM0NV8yMDI3MzEwNjczODdfMF8z_b_Bd857183bf69d3c3f795e8d44dc05ebcb.mp4?tag=1-1787898626-unknown-0-mj6uxthpwz-35fb63318a1a7b40&amp;type=hot&amp;clientCacheKey=3xa2r7nxnntuyys_b.mp4&amp;tt=b&amp;di=a58009a&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/06/05/09/BMjAyNjA2MDUwOTM1MTJfNTI1ODg1NTgxNV8xOTc5MjY0MjEwMTRfMF8z_b_Bd3bea624872704873741b56fa4a96b48.mp4?tag=1-1787898627-unknown-0-qudrqpnxvl-de8a1e05115ce68e&amp;type=hot&amp;clientCacheKey=3xsex7xm3x39r69_b.mp4&amp;tt=b&amp;di=a3870ad&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/06/05/09/BMjAyNjA2MDUwOTM1MTJfNTI1ODg1NTgxNV8xOTc5MjY0MjEwMTRfMF8z_B683ffb7665e522898e58ce3e994b393d.jpg?tag=1-1787898627-unknown-0-odi2raye0v-20febff20f567fa8&amp;type=hot&amp;clientCacheKey=3xsex7xm3x39r69.jpg&amp;di=a3870ad&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 2</span>
+       <span class="pid">PID:197926421014</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">32s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">5,000+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">1000万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 效果震撼直给</span>
+         <span class="vtag form">明星切片</span>
+         <span class="vtag item">洗衣膏(聚合链)</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「天呐这也太夸张了吧，看清楚了吗，它是化掉的」</div>
+   <div class="foot"><span>带货单品：洗衣膏(聚合链) ｜ GMV量级：百万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/06/05/09/BMjAyNjA2MDUwOTM1MTJfNTI1ODg1NTgxNV8xOTc5MjY0MjEwMTRfMF8z_b_Bd3bea624872704873741b56fa4a96b48.mp4?tag=1-1787898627-unknown-0-qudrqpnxvl-de8a1e05115ce68e&amp;type=hot&amp;clientCacheKey=3xsex7xm3x39r69_b.mp4&amp;tt=b&amp;di=a3870ad&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/06/01/12/BMjAyNjA2MDExMjAyMzFfNTQyODAzMzIwMF8xOTc1ODEzMDgxMzFfMF8z_b_B2b985d31fe1f36ea3c387180b4366578.mp4?tag=1-1787898628-unknown-0-ntgocsvuty-8f2d56dd93765303&amp;type=hot&amp;clientCacheKey=3xs8bur5a6tihfc_b.mp4&amp;tt=b&amp;di=a112b32&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/06/01/12/BMjAyNjA2MDExMjAyMzFfNTQyODAzMzIwMF8xOTc1ODEzMDgxMzFfMF8z_B981e310c42132c7f3846f065ee669eef.jpg?tag=1-1787898628-unknown-0-egbo2mkyue-6fc2c92477e60a16&amp;type=hot&amp;clientCacheKey=3xs8bur5a6tihfc.jpg&amp;di=a112b32&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 3</span>
+       <span class="pid">PID:197581308131</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">36s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">1,800+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">100万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 明星信任背书</span>
+         <span class="vtag form">明星切片</span>
+         <span class="vtag item">爆炸盐</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「李立群：虚假宣传是犯法的，这个我敢带」</div>
+   <div class="foot"><span>带货单品：爆炸盐 ｜ GMV量级：百万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/06/01/12/BMjAyNjA2MDExMjAyMzFfNTQyODAzMzIwMF8xOTc1ODEzMDgxMzFfMF8z_b_B2b985d31fe1f36ea3c387180b4366578.mp4?tag=1-1787898628-unknown-0-ntgocsvuty-8f2d56dd93765303&amp;type=hot&amp;clientCacheKey=3xs8bur5a6tihfc_b.mp4&amp;tt=b&amp;di=a112b32&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/08/05/18/BMjAyNjA4MDUxODMwMzdfNTQyNzk5MjM0NV8yMDQ1NTM2NTcwMzdfMF8z_b_B0933538fc99629020f1e16f783b07fb0.mp4?tag=1-1787898629-unknown-0-tl5i5abns8-2190706774fbc4ce&amp;type=hot&amp;clientCacheKey=3xdu4txr4v7r9m2_b.mp4&amp;tt=b&amp;di=a110376&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/08/05/18/BMjAyNjA4MDUxODMwMzdfNTQyNzk5MjM0NV8yMDQ1NTM2NTcwMzdfMF8z_Bf8d145eda03bb7ab4bf0cdbaba15d5ed.jpg?tag=1-1787898629-unknown-0-rh4owoqv56-1c5002c6900f9532&amp;type=hot&amp;clientCacheKey=3xdu4txr4v7r9m2.jpg&amp;di=a110376&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 4</span>
+       <span class="pid">PID:204553657037</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">34s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">3,200+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">100万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 冲突剧情</span>
+         <span class="vtag form">真人剧情</span>
+         <span class="vtag item">免搓粉</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「我烧了十几年流水席都是这么穿」「你衣服全是老油垢还敢做饭」</div>
+   <div class="foot"><span>带货单品：免搓粉 ｜ GMV量级：百万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/08/05/18/BMjAyNjA4MDUxODMwMzdfNTQyNzk5MjM0NV8yMDQ1NTM2NTcwMzdfMF8z_b_B0933538fc99629020f1e16f783b07fb0.mp4?tag=1-1787898629-unknown-0-tl5i5abns8-2190706774fbc4ce&amp;type=hot&amp;clientCacheKey=3xdu4txr4v7r9m2_b.mp4&amp;tt=b&amp;di=a110376&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/04/16/18/BMjAyNjA0MTYxODAwNTJfNTI1ODg1NTgxNV8xOTMyNDgyNDIwNjBfMF8z_b_Bab6d0cd4de46e9a1451c3863dc59753c.mp4?tag=1-1787898630-unknown-0-7zwsb5plwh-0dc31fa5417e112e&amp;type=hot&amp;clientCacheKey=3xs7vgrrqd9i8dg_b.mp4&amp;tt=b&amp;di=a3870cf&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/04/16/18/BMjAyNjA0MTYxODAwNTJfNTI1ODg1NTgxNV8xOTMyNDgyNDIwNjBfMF8z_Bc5ce29b1f8598cf3151da48415390230.jpg?tag=1-1787898630-unknown-0-vkejy4pbnq-ae723d4ee7a456af&amp;type=hot&amp;clientCacheKey=3xs7vgrrqd9i8dg.jpg&amp;di=a3870cf&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 5</span>
+       <span class="pid">PID:193248242060</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">33s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">600+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">10万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 明星信任背书</span>
+         <span class="vtag form">明星切片</span>
+         <span class="vtag item">洗衣膏</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「于震同款，男人做家务就靠它」</div>
+   <div class="foot"><span>带货单品：洗衣膏 ｜ GMV量级：十万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/04/16/18/BMjAyNjA0MTYxODAwNTJfNTI1ODg1NTgxNV8xOTMyNDgyNDIwNjBfMF8z_b_Bab6d0cd4de46e9a1451c3863dc59753c.mp4?tag=1-1787898630-unknown-0-7zwsb5plwh-0dc31fa5417e112e&amp;type=hot&amp;clientCacheKey=3xs7vgrrqd9i8dg_b.mp4&amp;tt=b&amp;di=a3870cf&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/03/28/09/BMjAyNjAzMjgwOTI5MDNfNTI1ODg1NTgxNV8xOTE0ODcxOTYzNjZfMF8z_b_B072a8870ef3bfe2ab8fb3c7b5419728c.mp4?tag=1-1787898632-unknown-0-kxrxfalf9o-f9570f8f82e91c61&amp;type=hot&amp;clientCacheKey=3x4ztuaixa4k8ms_b.mp4&amp;tt=b&amp;di=a34375f&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/03/28/09/BMjAyNjAzMjgwOTI5MDNfNTI1ODg1NTgxNV8xOTE0ODcxOTYzNjZfMF8z_B092de3aaee7e371dac38f8d5b1a0f982.jpg?tag=1-1787898632-unknown-0-6t0xzklnwi-a62d96a57bcdca74&amp;type=hot&amp;clientCacheKey=3x4ztuaixa4k8ms.jpg&amp;di=a34375f&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 6</span>
+       <span class="pid">PID:191487196366</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">31s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">400+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">10万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 场景代入提问</span>
+         <span class="vtag form">AI数字人口播</span>
+         <span class="vtag item">洗衣膏</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「宝妈们开学了，孩子的鞋是不是也这样脏？」</div>
+   <div class="foot"><span>带货单品：洗衣膏 ｜ GMV量级：—</span><a href="http://tymov2.a.kwimgs.com/upic/2026/03/28/09/BMjAyNjAzMjgwOTI5MDNfNTI1ODg1NTgxNV8xOTE0ODcxOTYzNjZfMF8z_b_B072a8870ef3bfe2ab8fb3c7b5419728c.mp4?tag=1-1787898632-unknown-0-kxrxfalf9o-f9570f8f82e91c61&amp;type=hot&amp;clientCacheKey=3x4ztuaixa4k8ms_b.mp4&amp;tt=b&amp;di=a34375f&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/07/30/16/BMjAyNjA3MzAxNjQxMTVfNTQyNzk5MjM0NV8yMDM4NjUzODA1MzJfMF8z_b_B2e725a4d1d26bf9545f39062aeea32ca.mp4?tag=1-1787898633-unknown-0-wtjtzezw9l-f8497e6de76da776&amp;type=hot&amp;clientCacheKey=3x9mfkabnxp6qy2_b.mp4&amp;tt=b&amp;di=a0e00ea&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/07/30/16/BMjAyNjA3MzAxNjQxMTVfNTQyNzk5MjM0NV8yMDM4NjUzODA1MzJfMF8z_Bcd6ed8ea33feda11ddbc58d139f7a70a.jpg?tag=1-1787898633-unknown-0-gh8rieuakv-b1306daf3636622b&amp;type=hot&amp;clientCacheKey=3x9mfkabnxp6qy2.jpg&amp;di=a0e00ea&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 7</span>
+       <span class="pid">PID:203865380532</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">33s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">800+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">10万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 冲突/反常识</span>
+         <span class="vtag form">效果混剪</span>
+         <span class="vtag item">免搓粉</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「夏天不想谈恋爱的别用，衣服穿一礼拜都是香的」</div>
+   <div class="foot"><span>带货单品：免搓粉 ｜ GMV量级：十万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/07/30/16/BMjAyNjA3MzAxNjQxMTVfNTQyNzk5MjM0NV8yMDM4NjUzODA1MzJfMF8z_b_B2e725a4d1d26bf9545f39062aeea32ca.mp4?tag=1-1787898633-unknown-0-wtjtzezw9l-f8497e6de76da776&amp;type=hot&amp;clientCacheKey=3x9mfkabnxp6qy2_b.mp4&amp;tt=b&amp;di=a0e00ea&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/08/21/18/BMjAyNjA4MjExODA3MjlfNTQyNzk5MjM0NV8yMDYzNjQ3MTMwMDNfMF8z_b_B7e212d67cb30de3c9b6b7ffdfe40b42c.mp4?tag=1-1787898643-unknown-0-vi47uzim3n-2b9c28140a22e30b&amp;type=hot&amp;clientCacheKey=3xgpfj4e5fkdydk_b.mp4&amp;tt=b&amp;di=a76d86a&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/08/21/18/BMjAyNjA4MjExODA3MjlfNTQyNzk5MjM0NV8yMDYzNjQ3MTMwMDNfMF8z_B1a52ecd4b7d196e49b586400946aa0d1.jpg?tag=1-1787898643-unknown-0-sa4uhehzce-18c639eea90e4be2&amp;type=hot&amp;clientCacheKey=3xgpfj4e5fkdydk.jpg&amp;di=a76d86a&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 8</span>
+       <span class="pid">PID:206364713003</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">31s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">500+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">10万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 冲突剧情</span>
+         <span class="vtag form">真人剧情</span>
+         <span class="vtag item">免搓粉</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「衣服全是老油垢还敢做饭？当场给你洗出来」</div>
+   <div class="foot"><span>带货单品：免搓粉 ｜ GMV量级：—</span><a href="http://tymov2.a.kwimgs.com/upic/2026/08/21/18/BMjAyNjA4MjExODA3MjlfNTQyNzk5MjM0NV8yMDYzNjQ3MTMwMDNfMF8z_b_B7e212d67cb30de3c9b6b7ffdfe40b42c.mp4?tag=1-1787898643-unknown-0-vi47uzim3n-2b9c28140a22e30b&amp;type=hot&amp;clientCacheKey=3xgpfj4e5fkdydk_b.mp4&amp;tt=b&amp;di=a76d86a&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/06/02/14/BMjAyNjA2MDIxNDE0MjVfNTQyODAzMzIwMF8xOTc2ODcyNzMyNjlfMF8z_b_B56ccf512b3cb938c3e368884a96ea8eb.mp4?tag=1-1787898644-unknown-0-qjvopofpdq-0b69e468b0e84285&amp;type=hot&amp;clientCacheKey=3xjt934nxz8mr36_b.mp4&amp;tt=b&amp;di=a3870d0&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/06/02/14/BMjAyNjA2MDIxNDE0MjVfNTQyODAzMzIwMF8xOTc2ODcyNzMyNjlfMF8z_B31fa5bd76297e3aa5bf8d72876d7eb1d.jpg?tag=1-1787898644-unknown-0-hqc8heqpu1-1794ed5b5155d64a&amp;type=hot&amp;clientCacheKey=3xjt934nxz8mr36.jpg&amp;di=a3870d0&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 9</span>
+       <span class="pid">PID:197687273269</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">38s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">700+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">10万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 效果震撼直给</span>
+         <span class="vtag form">效果混剪</span>
+         <span class="vtag item">爆炸盐</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「泡一晚，黄渍自己浮上来，看清楚了吗」</div>
+   <div class="foot"><span>带货单品：爆炸盐 ｜ GMV量级：十万级</span><a href="http://tymov2.a.kwimgs.com/upic/2026/06/02/14/BMjAyNjA2MDIxNDE0MjVfNTQyODAzMzIwMF8xOTc2ODcyNzMyNjlfMF8z_b_B56ccf512b3cb938c3e368884a96ea8eb.mp4?tag=1-1787898644-unknown-0-qjvopofpdq-0b69e468b0e84285&amp;type=hot&amp;clientCacheKey=3xjt934nxz8mr36_b.mp4&amp;tt=b&amp;di=a3870d0&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div>
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="http://tymov2.a.kwimgs.com/upic/2026/08/21/11/BMjAyNjA4MjExMTI2NTRfNTQyNzk5MjM0NV8yMDYzMTk0MjEyNzlfMF8z_b_Bfce7507f8e5613f9a468175aae567fd9.mp4?tag=1-1787898645-unknown-0-tejgm7yiib-e5a4b728c2161ad7&amp;type=hot&amp;clientCacheKey=3xsaaa7uwrxa9j6_b.mp4&amp;tt=b&amp;di=a34376b&amp;bp=13990" target="_blank" title="点击播放原片">
+       <img src="http://tx2.a.yximgs.com/upic/2026/08/21/11/BMjAyNjA4MjExMTI2NTRfNTQyNzk5MjM0NV8yMDYzMTk0MjEyNzlfMF8z_B162dc97003c14fbe7a592bd071090e42.jpg?tag=1-1787898645-unknown-0-5p4pe9ewcb-959207777cca5872&amp;type=hot&amp;clientCacheKey=3xsaaa7uwrxa9j6.jpg&amp;di=a34376b&amp;bp=13990" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP 10</span>
+       <span class="pid">PID:206319421279</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">32s</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">450+</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">10万+</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 冲突/反常识</span>
+         <span class="vtag form">效果混剪</span>
+         <span class="vtag item">免搓粉</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">「这瓶洗衣粉，让我妈把洗衣液全扔了」</div>
+   <div class="foot"><span>带货单品：免搓粉 ｜ GMV量级：—</span><a href="http://tymov2.a.kwimgs.com/upic/2026/08/21/11/BMjAyNjA4MjExMTI2NTRfNTQyNzk5MjM0NV8yMDYzMTk0MjEyNzlfMF8z_b_Bfce7507f8e5613f9a468175aae567fd9.mp4?tag=1-1787898645-unknown-0-tejgm7yiib-e5a4b728c2161ad7&amp;type=hot&amp;clientCacheKey=3xsaaa7uwrxa9j6_b.mp4&amp;tt=b&amp;di=a34376b&amp;bp=13990" target="_blank">▶ 播放视频</a></div>
+ </div></div>
+</div>
+
+<!-- ④ 四段式结构 -->
+<div class="section">
+  <div class="sec-title">四段式结构（31-38s 黄金时长验证）</div>
+  <div class="sec-desc">家清品专属变体：钩子 → 痛点放大 → 效果实证 → 促销逼单</div>
+  <div class="card" style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;">
+    <div class="struct">
+      <div class="s1"><b>0-3s</b><span>钩子</span></div>
+      <div class="s2"><b>3-10s</b><span>痛点放大</span></div>
+      <div class="s3"><b>10-28s</b><span>效果实证</span></div>
+      <div class="s4"><b>28-38s</b><span>促销逼单</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px;font-size:13px;">
+      <div><b style="color:var(--orange);">钩子段</b><br><span style="color:var(--text2);">明星开场 / 场景提问 / 效果直给，3秒内定生死</span></div>
+      <div><b style="color:#e8590c;">痛点段</b><br><span style="color:var(--text2);">「洗衣液洗不掉」+ 书包/枕套/白T恤场景清单轰炸</span></div>
+      <div><b style="color:var(--blue);">实证段</b><br><span style="color:var(--text2);">刷洗对比实拍+加速处理+「9重酵素/99.9%杀菌」成分背书</span></div>
+      <div><b style="color:var(--green);">促销段</b><br><span style="color:var(--text2);">「59.9不要→39.9不要→19.9」三级降价+限时赠品</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 脚本模板 -->
+<div class="section">
+  <div class="sec-title">3 套可复用脚本模板（量产 SOP）</div>
+  <div class="sec-desc">即拿即用，替换商品名/场景词即可批量产出</div>
+  <div class="tpl-grid">
+    <div class="tpl">
+      <h3>模板A：明星背书收割型（冲量期）</h3>
+      <div class="step"><b>0-3s</b>｜明星直视镜头：「这个XX，我用我的声誉来推荐」</div>
+      <div class="step"><b>3-8s</b>｜承诺句：「如果是假货/没效果，我XXX」</div>
+      <div class="step"><b>8-25s</b>｜切效果混剪：脏衣物→刷洗→洁白如新（加速+大字幕）</div>
+      <div class="step"><b>25-35s</b>｜三级降价：「59.9不要，39.9不要，19.9这个数，还送XX」</div>
+      <div class="tagrow"><span class="vtag hook">明星信任背书</span><span class="vtag form">明星切片+效果混剪</span></div>
+    </div>
+    <div class="tpl">
+      <h3>模板B：场景提问种草型（日常跑量）</h3>
+      <div class="step"><b>0-3s</b>｜提问：「宝妈们，孩子开学的鞋是不是也这样？」</div>
+      <div class="step"><b>3-10s</b>｜痛点清单：书包/枕套/白T恤/校服轮播</div>
+      <div class="step"><b>10-28s</b>｜实测：普通洗衣液洗不掉 vs 本品一刷就掉</div>
+      <div class="step"><b>28-35s</b>｜成分背书+价格锚定收尾</div>
+      <div class="tagrow"><span class="vtag hook">场景代入提问</span><span class="vtag form">AI口播 / 真人出镜</span></div>
+    </div>
+    <div class="tpl">
+      <h3>模板C：冲突剧情破圈型（拉新期）</h3>
+      <div class="step"><b>0-3s</b>｜冲突开场：「我烧了十几年流水席都是这么穿」</div>
+      <div class="step"><b>3-10s</b>｜矛盾升级：「你衣服全是老油垢，还敢做饭？」</div>
+      <div class="step"><b>10-28s</b>｜当场实测反打：现场刷洗，油垢化掉</div>
+      <div class="step"><b>28-38s</b>｜反转结局+「点击下方，19.9带回家」</div>
+      <div class="tagrow"><span class="vtag hook">冲突剧情</span><span class="vtag form">真人剧情</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ 模板迁移方向 -->
+<div class="section">
+  <div class="sec-title">模板迁移方向</div>
+  <div class="sec-desc">判断标准：三条全中即可搬 —— ① 实用焦虑驱动决策 ② 有可数字化的硬卖点 ③ SKU少能支撑单品反复投放</div>
+  <div class="biz-grid">
+    <div class="biz-card">
+      <h3>🧴 同品类平移（最快）</h3>
+      <ul>
+        <li><b>洗衣液/凝珠</b>：同一套"洗不掉→一刷就掉"对比脚本直接换品</li>
+        <li><b>厨房油污净</b>：场景换成油烟机/灶台，视觉冲击更强</li>
+        <li><b>爆炸盐复用</b>：已验证，亮妈妈内部第二增长曲线</li>
+      </ul>
+    </div>
+    <div class="biz-card mid">
+      <h3>🔄 跨品类改造</h3>
+      <ul>
+        <li><b>牙膏/洗发水</b>：对比实验保留，钩子换"社交尴尬"（牙黄/头屑）</li>
+        <li><b>鞋服</b>：实证段换"防水泼溅/弹力拉扯"实测</li>
+        <li><b>食品</b>：实证段换"试吃反应+配料表特写"，钩子换囤货场景</li>
+      </ul>
+    </div>
+    <div class="biz-card no">
+      <h3>🚫 迁移红线</h3>
+      <ul>
+        <li><b>明星切片</b>：无授权不迁移，白牌商家直接放弃该形式</li>
+        <li><b>「99.9%杀菌率」类宣称</b>：必须有检测报告，跨品类前先过合规</li>
+        <li><b>三级降价话术</b>：高客单品类（&gt;¥100）慎用，损伤价格信任</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 内部版专属 -->
+<div class="section internal-only">
+  <div class="sec-title">⚠️ 内部风险预警</div>
+  <div class="biz-grid">
+    <div class="biz-card no">
+      <h3>风险清单</h3>
+      <ul>
+        <li>10条中5条含明星切片（刘仪伟/于震/李立群/陈浩民），授权链需逐一核实留档</li>
+        <li>「99.9%杀菌率」功效宣称需检测报告支撑备案</li>
+        <li>免搓粉流量高度集中于单一商品链，建议孵化分支链分散单点风险</li>
+        <li>素材同质化，明星轮播易引发"套路疲劳"，建议每2周迭代钩子</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">亮妈妈 TOP10 爆款素材拆解报告 · Mumu 出品</div>
+</div>
+
+<script>
+const CDN={
+ '205084179284':{v:'http://tymov2.a.kwimgs.com/upic/2026/08/10/15/BMjAyNjA4MTAxNTEyMjZfMjQ3MjU4ODE0XzIwNTA4NDE3OTI4NF8wXzM=_b_B7d98d9a7bc9f1f8a62022e0cdc03d490.mp4?tag=1-1787898623-unknown-0-mu467q2wrs-356fd97ed57fb9c0&type=hot&clientCacheKey=3xj7q5kt7mgc7c6_b.mp4&tt=b&di=a3870ad&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/08/10/15/BMjAyNjA4MTAxNTEyMjZfMjQ3MjU4ODE0XzIwNTA4NDE3OTI4NF8wXzM=_Ba5cee4e231350ae30365e49caba4c78f.jpg?tag=1-1787898623-unknown-0-4f0w2v8hmu-01089c8dfb9b475c&type=hot&clientCacheKey=3xj7q5kt7mgc7c6.jpg&di=a3870ad&bp=13990'},
+ '205081237551':{v:'http://tymov2.a.kwimgs.com/upic/2026/08/10/14/BMjAyNjA4MTAxNDQ3MDFfMjQ3MjU4ODE0XzIwNTA4MTIzNzU1MV8wXzM=_b_B3f00de92681246ac1601c7da13e96c3c.mp4?tag=1-1787898624-unknown-0-hownkjdodf-ae61929f1ed886fc&type=hot&clientCacheKey=3x3qt5gwcrk3vm6_b.mp4&tt=b&di=a3855a7&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/08/10/14/BMjAyNjA4MTAxNDQ3MDFfMjQ3MjU4ODE0XzIwNTA4MTIzNzU1MV8wXzM=_Bb2021f4ea8a5adcaba54ab6976bf66b5.jpg?tag=1-1787898624-unknown-0-acr1dkefh9-a8b7341658c33f69&type=hot&clientCacheKey=3x3qt5gwcrk3vm6.jpg&di=a3855a7&bp=13990'},
+ '205887690315':{v:'http://tymov2.a.kwimgs.com/upic/2026/08/17/19/BMjAyNjA4MTcxOTEwNTBfMjQ3MjU4ODE0XzIwNTg4NzY5MDMxNV8wXzM=_b_Bfb0008ad2899c652bdcc43bdbd13bbee.mp4?tag=1-1787898625-unknown-0-xrfcbseqqq-4452bdaad996cb3c&type=hot&clientCacheKey=3xmvf5thp6fxntg_b.mp4&tt=b&di=a0e00ef&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/08/17/19/BMjAyNjA4MTcxOTEwNTBfMjQ3MjU4ODE0XzIwNTg4NzY5MDMxNV8wXzM=_B5a2bf71aa32d8285dc5f8b8a03b0acc1.jpg?tag=1-1787898625-unknown-0-dolbgqqdjd-d8a61724892e3b6e&type=hot&clientCacheKey=3xmvf5thp6fxntg.jpg&di=a0e00ef&bp=13990'},
+ '202731067387':{v:'http://tymov2.a.kwimgs.com/upic/2026/07/20/11/BMjAyNjA3MjAxMTM0NTdfNTQyNzk5MjM0NV8yMDI3MzEwNjczODdfMF8z_b_Bd857183bf69d3c3f795e8d44dc05ebcb.mp4?tag=1-1787898626-unknown-0-mj6uxthpwz-35fb63318a1a7b40&type=hot&clientCacheKey=3xa2r7nxnntuyys_b.mp4&tt=b&di=a58009a&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/07/20/11/BMjAyNjA3MjAxMTM0NTdfNTQyNzk5MjM0NV8yMDI3MzEwNjczODdfMF8z_Bb8e80d9c8de5d85b9c2c6af24413c464.jpg?tag=1-1787898626-unknown-0-uyzxxs4m8g-f02cffdeb441353b&type=hot&clientCacheKey=3xa2r7nxnntuyys.jpg&di=a58009a&bp=13990'},
+ '197926421014':{v:'http://tymov2.a.kwimgs.com/upic/2026/06/05/09/BMjAyNjA2MDUwOTM1MTJfNTI1ODg1NTgxNV8xOTc5MjY0MjEwMTRfMF8z_b_Bd3bea624872704873741b56fa4a96b48.mp4?tag=1-1787898627-unknown-0-qudrqpnxvl-de8a1e05115ce68e&type=hot&clientCacheKey=3xsex7xm3x39r69_b.mp4&tt=b&di=a3870ad&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/06/05/09/BMjAyNjA2MDUwOTM1MTJfNTI1ODg1NTgxNV8xOTc5MjY0MjEwMTRfMF8z_B683ffb7665e522898e58ce3e994b393d.jpg?tag=1-1787898627-unknown-0-odi2raye0v-20febff20f567fa8&type=hot&clientCacheKey=3xsex7xm3x39r69.jpg&di=a3870ad&bp=13990'},
+ '197581308131':{v:'http://tymov2.a.kwimgs.com/upic/2026/06/01/12/BMjAyNjA2MDExMjAyMzFfNTQyODAzMzIwMF8xOTc1ODEzMDgxMzFfMF8z_b_B2b985d31fe1f36ea3c387180b4366578.mp4?tag=1-1787898628-unknown-0-ntgocsvuty-8f2d56dd93765303&type=hot&clientCacheKey=3xs8bur5a6tihfc_b.mp4&tt=b&di=a112b32&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/06/01/12/BMjAyNjA2MDExMjAyMzFfNTQyODAzMzIwMF8xOTc1ODEzMDgxMzFfMF8z_B981e310c42132c7f3846f065ee669eef.jpg?tag=1-1787898628-unknown-0-egbo2mkyue-6fc2c92477e60a16&type=hot&clientCacheKey=3xs8bur5a6tihfc.jpg&di=a112b32&bp=13990'},
+ '204553657037':{v:'http://tymov2.a.kwimgs.com/upic/2026/08/05/18/BMjAyNjA4MDUxODMwMzdfNTQyNzk5MjM0NV8yMDQ1NTM2NTcwMzdfMF8z_b_B0933538fc99629020f1e16f783b07fb0.mp4?tag=1-1787898629-unknown-0-tl5i5abns8-2190706774fbc4ce&type=hot&clientCacheKey=3xdu4txr4v7r9m2_b.mp4&tt=b&di=a110376&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/08/05/18/BMjAyNjA4MDUxODMwMzdfNTQyNzk5MjM0NV8yMDQ1NTM2NTcwMzdfMF8z_Bf8d145eda03bb7ab4bf0cdbaba15d5ed.jpg?tag=1-1787898629-unknown-0-rh4owoqv56-1c5002c6900f9532&type=hot&clientCacheKey=3xdu4txr4v7r9m2.jpg&di=a110376&bp=13990'},
+ '193248242060':{v:'http://tymov2.a.kwimgs.com/upic/2026/04/16/18/BMjAyNjA0MTYxODAwNTJfNTI1ODg1NTgxNV8xOTMyNDgyNDIwNjBfMF8z_b_Bab6d0cd4de46e9a1451c3863dc59753c.mp4?tag=1-1787898630-unknown-0-7zwsb5plwh-0dc31fa5417e112e&type=hot&clientCacheKey=3xs7vgrrqd9i8dg_b.mp4&tt=b&di=a3870cf&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/04/16/18/BMjAyNjA0MTYxODAwNTJfNTI1ODg1NTgxNV8xOTMyNDgyNDIwNjBfMF8z_Bc5ce29b1f8598cf3151da48415390230.jpg?tag=1-1787898630-unknown-0-vkejy4pbnq-ae723d4ee7a456af&type=hot&clientCacheKey=3xs7vgrrqd9i8dg.jpg&di=a3870cf&bp=13990'},
+ '191487196366':{v:'http://tymov2.a.kwimgs.com/upic/2026/03/28/09/BMjAyNjAzMjgwOTI5MDNfNTI1ODg1NTgxNV8xOTE0ODcxOTYzNjZfMF8z_b_B072a8870ef3bfe2ab8fb3c7b5419728c.mp4?tag=1-1787898632-unknown-0-kxrxfalf9o-f9570f8f82e91c61&type=hot&clientCacheKey=3x4ztuaixa4k8ms_b.mp4&tt=b&di=a34375f&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/03/28/09/BMjAyNjAzMjgwOTI5MDNfNTI1ODg1NTgxNV8xOTE0ODcxOTYzNjZfMF8z_B092de3aaee7e371dac38f8d5b1a0f982.jpg?tag=1-1787898632-unknown-0-6t0xzklnwi-a62d96a57bcdca74&type=hot&clientCacheKey=3x4ztuaixa4k8ms.jpg&di=a34375f&bp=13990'},
+ '203865380532':{v:'http://tymov2.a.kwimgs.com/upic/2026/07/30/16/BMjAyNjA3MzAxNjQxMTVfNTQyNzk5MjM0NV8yMDM4NjUzODA1MzJfMF8z_b_B2e725a4d1d26bf9545f39062aeea32ca.mp4?tag=1-1787898633-unknown-0-wtjtzezw9l-f8497e6de76da776&type=hot&clientCacheKey=3x9mfkabnxp6qy2_b.mp4&tt=b&di=a0e00ea&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/07/30/16/BMjAyNjA3MzAxNjQxMTVfNTQyNzk5MjM0NV8yMDM4NjUzODA1MzJfMF8z_Bcd6ed8ea33feda11ddbc58d139f7a70a.jpg?tag=1-1787898633-unknown-0-gh8rieuakv-b1306daf3636622b&type=hot&clientCacheKey=3x9mfkabnxp6qy2.jpg&di=a0e00ea&bp=13990'},
+ '206364713003':{v:'http://tymov2.a.kwimgs.com/upic/2026/08/21/18/BMjAyNjA4MjExODA3MjlfNTQyNzk5MjM0NV8yMDYzNjQ3MTMwMDNfMF8z_b_B7e212d67cb30de3c9b6b7ffdfe40b42c.mp4?tag=1-1787898643-unknown-0-vi47uzim3n-2b9c28140a22e30b&type=hot&clientCacheKey=3xgpfj4e5fkdydk_b.mp4&tt=b&di=a76d86a&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/08/21/18/BMjAyNjA4MjExODA3MjlfNTQyNzk5MjM0NV8yMDYzNjQ3MTMwMDNfMF8z_B1a52ecd4b7d196e49b586400946aa0d1.jpg?tag=1-1787898643-unknown-0-sa4uhehzce-18c639eea90e4be2&type=hot&clientCacheKey=3xgpfj4e5fkdydk.jpg&di=a76d86a&bp=13990'},
+ '197687273269':{v:'http://tymov2.a.kwimgs.com/upic/2026/06/02/14/BMjAyNjA2MDIxNDE0MjVfNTQyODAzMzIwMF8xOTc2ODcyNzMyNjlfMF8z_b_B56ccf512b3cb938c3e368884a96ea8eb.mp4?tag=1-1787898644-unknown-0-qjvopofpdq-0b69e468b0e84285&type=hot&clientCacheKey=3xjt934nxz8mr36_b.mp4&tt=b&di=a3870d0&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/06/02/14/BMjAyNjA2MDIxNDE0MjVfNTQyODAzMzIwMF8xOTc2ODcyNzMyNjlfMF8z_B31fa5bd76297e3aa5bf8d72876d7eb1d.jpg?tag=1-1787898644-unknown-0-hqc8heqpu1-1794ed5b5155d64a&type=hot&clientCacheKey=3xjt934nxz8mr36.jpg&di=a3870d0&bp=13990'},
+ '206319421279':{v:'http://tymov2.a.kwimgs.com/upic/2026/08/21/11/BMjAyNjA4MjExMTI2NTRfNTQyNzk5MjM0NV8yMDYzMTk0MjEyNzlfMF8z_b_Bfce7507f8e5613f9a468175aae567fd9.mp4?tag=1-1787898645-unknown-0-tejgm7yiib-e5a4b728c2161ad7&type=hot&clientCacheKey=3xsaaa7uwrxa9j6_b.mp4&tt=b&di=a34376b&bp=13990',c:'http://tx2.a.yximgs.com/upic/2026/08/21/11/BMjAyNjA4MjExMTI2NTRfNTQyNzk5MjM0NV8yMDYzMTk0MjEyNzlfMF8z_B162dc97003c14fbe7a592bd071090e42.jpg?tag=1-1787898645-unknown-0-5p4pe9ewcb-959207777cca5872&type=hot&clientCacheKey=3xsaaa7uwrxa9j6.jpg&di=a34376b&bp=13990'}
+};
+
+const cards=[
+ {rank:1,pid:'202731067387',item:'免搓粉',form:'明星切片',hook:'明星信任背书',dur:'35s',play:'100万+',like:'2,400+',line:'「我用我的声誉来推荐，骗你我就不姓干」',gmv:'千万级'},
+ {rank:2,pid:'197926421014',item:'洗衣膏(聚合链)',form:'明星切片',hook:'效果震撼直给',dur:'32s',play:'1000万+',like:'5,000+',line:'「天呐这也太夸张了吧，看清楚了吗，它是化掉的」',gmv:'百万级'},
+ {rank:3,pid:'197581308131',item:'爆炸盐',form:'明星切片',hook:'明星信任背书',dur:'36s',play:'100万+',like:'1,800+',line:'「李立群：虚假宣传是犯法的，这个我敢带」',gmv:'百万级'},
+ {rank:4,pid:'204553657037',item:'免搓粉',form:'真人剧情',hook:'冲突剧情',dur:'34s',play:'100万+',like:'3,200+',line:'「我烧了十几年流水席都是这么穿」「你衣服全是老油垢还敢做饭」',gmv:'百万级'},
+ {rank:5,pid:'193248242060',item:'洗衣膏',form:'明星切片',hook:'明星信任背书',dur:'33s',play:'10万+',like:'600+',line:'「于震同款，男人做家务就靠它」',gmv:'十万级'},
+ {rank:6,pid:'191487196366',item:'洗衣膏',form:'AI数字人口播',hook:'场景代入提问',dur:'31s',play:'10万+',like:'400+',line:'「宝妈们开学了，孩子的鞋是不是也这样脏？」',gmv:'—'},
+ {rank:7,pid:'203865380532',item:'免搓粉',form:'效果混剪',hook:'冲突/反常识',dur:'33s',play:'10万+',like:'800+',line:'「夏天不想谈恋爱的别用，衣服穿一礼拜都是香的」',gmv:'十万级'},
+ {rank:8,pid:'206364713003',item:'免搓粉',form:'真人剧情',hook:'冲突剧情',dur:'31s',play:'10万+',like:'500+',line:'「衣服全是老油垢还敢做饭？当场给你洗出来」',gmv:'—'},
+ {rank:9,pid:'197687273269',item:'爆炸盐',form:'效果混剪',hook:'效果震撼直给',dur:'38s',play:'10万+',like:'700+',line:'「泡一晚，黄渍自己浮上来，看清楚了吗」',gmv:'十万级'},
+ {rank:10,pid:'206319421279',item:'免搓粉',form:'效果混剪',hook:'冲突/反常识',dur:'32s',play:'10万+',like:'450+',line:'「这瓶洗衣粉，让我妈把洗衣液全扔了」',gmv:'—'}
+];
+
+let mode='external';
+function render(){
+ document.getElementById('cardGrid').innerHTML=cards.map(c=>{
+  const m=CDN[c.pid]||{};
+  return `
+ <div class="vcard">
+   <div class="vcard-top">
+     <a class="cover-link" href="${m.v||'#'}" target="_blank" title="点击播放原片">
+       <img src="${m.c||''}" alt="">
+       <div class="play"><span>▶</span></div>
+     </a>
+     <div class="vcard-info">
+       <span class="rank">TOP ${c.rank}</span>
+       <span class="pid">PID:${c.pid}</span>
+       <div class="vmetrics">
+         <div class="vm"><div class="v">${c.dur}</div><div class="k">时长</div></div>
+         <div class="vm"><div class="v">${c.like}</div><div class="k">点赞</div></div>
+         <div class="vm"><div class="v">${c.play}</div><div class="k">播放</div></div>
+       </div>
+       <div class="vtags">
+         <span class="vtag hook">🧲 ${c.hook}</span>
+         <span class="vtag form">${c.form}</span>
+         <span class="vtag item">${c.item}</span>
+       </div>
+     </div>
+   </div>
+   <div class="hook-line">${c.line}</div>
+   <div class="foot"><span>带货单品：${c.item} ｜ GMV量级：${c.gmv}</span><a href="${m.v||'#'}" target="_blank">▶ 播放视频</a></div>
+ </div>`;}).join('');
+}
+function switchMode(m){
+ mode=m;
+ document.body.className = m==='external' ? 'external-only' : 'internal-only';
+ document.getElementById('btnExt').classList.toggle('active',m==='external');
+ document.getElementById('btnInt').classList.toggle('active',m==='internal');
+}
+function saveHTML(){
+ const blob=new Blob(['<!DOCTYPE html>'+document.documentElement.outerHTML],{type:'text/html'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='亮妈妈TOP10爆款素材拆解报告.html';a.click();
+}
+render();
+</script>
+
+
+</body></html>
